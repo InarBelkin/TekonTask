@@ -14,8 +14,10 @@ leftPenColors.Remove(ConsoleColor.White);
 
 for (int i = 0; i < Random.Shared.Next(2, 5); i++)
 {
+    var color = leftPenColors[Random.Shared.Next(leftPenColors.Count)];
     pencilBox.Add(new Pen()
-        { Capacity = Random.Shared.Next(5, 16), InkColor = leftPenColors[Random.Shared.Next(leftPenColors.Count)] });
+        { Capacity = Random.Shared.Next(5, 16), InkColor = color });
+    leftPenColors.Remove(color);
 }
 
 foreach (var c in text)
